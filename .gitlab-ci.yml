@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+
+build_stage:
+   stage: build
+   script:
+    - touch test_file.txt
+   artifacts:
+     paths:
+      - test_file.txt
+
+test_stage:
+   stage: test
+   script:
+     - ls -l
+     - cat test_file.txt
+   when: manual
+
+
